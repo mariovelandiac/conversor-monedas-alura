@@ -1,8 +1,8 @@
 
 public class ConversorChallenge {
 	public static void main(String[] args) {
-		// Launcher.launch();
-		ConsultoraDivisas consulta = new ConsultoraDivisas();
-		consulta.convertCurrency("USD", "COP", "1");
+		Launcher.launch();
+		// ConversoraDivisasOnline consulta = new ConversoraDivisasOnline();
+		// consulta.convertCurrency("USD", "COP", "1");
 	}
 }
