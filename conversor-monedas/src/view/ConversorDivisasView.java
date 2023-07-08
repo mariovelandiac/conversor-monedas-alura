@@ -1,4 +1,4 @@
-package InterfacesGraficas;
+package view;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -6,21 +6,14 @@ import javax.swing.JPanel;
 import constants.OpcionesDivisas;
 import constants.ShowArrayStringText;
 
-public class ConversorDivisas {
+public class ConversorDivisasView implements ConversorView {
 	
 	private OpcionesDivisas[] opciones;
 	
-	public ConversorDivisas() {
-		this.opciones = OpcionesDivisas.values();
-	}
-	
-	public void Launch() {
+	private double valor;
 
-		String option = this.menuInicial();
-		System.out.println(option);
-	}
-	
-	private String menuInicial() {
+	@Override
+	public void leerEntrada() {
 		try {
 			// Crear Array de Textos Largos
 			String[] opcionesTexto = new String[this.opciones.length];
@@ -44,13 +37,17 @@ public class ConversorDivisas {
 				throw new IllegalArgumentException("No se seleccionó ninguna opción.");
 			}
 			String shortValue = this.opciones[selectedOption].getShortValue();
-
-			return shortValue;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new RuntimeException("Ocurrió un error al mostrar el menú principal.", e);
 		}
+	}
+
+	@Override
+	public void mostrarResultado(double resultado) {
+		// TODO Auto-generated method stub
+		
 	};
 
 	
