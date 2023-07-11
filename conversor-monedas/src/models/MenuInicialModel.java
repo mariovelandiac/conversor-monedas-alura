@@ -1,18 +1,26 @@
 package models;
 
+import constants.InfoText;
 import constants.OpcionesConversor;
+import constants.OptionList;
 import utils.OpcionesTexto;
 
 public class MenuInicialModel {
 
-	private OpcionesConversor[] opciones;
+	private String[] opciones;
+	private String infoText;
 	
 	public MenuInicialModel() {
-		this.opciones = OpcionesConversor.values();
+		this.infoText = InfoText.MenuInicial.getStringToShow();
+		OptionList[] opcionesConversor = OpcionesConversor.values();
+		this.opciones = OpcionesTexto.getOpciones(opcionesConversor);
 	}
-
+	
 	public String[] getOpciones() {
-		String[] textoOpciones = OpcionesTexto.getOpciones(this.opciones);
-		return textoOpciones;
+		return this.opciones;
+	}
+	
+	public String getInfoText() {
+		return this.infoText;
 	}
 }

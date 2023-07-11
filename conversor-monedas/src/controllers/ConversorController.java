@@ -1,5 +1,8 @@
 package controllers;
 
-public interface ConversorController {
-	public void realizarConversion();
+public abstract class ConversorController {
+	
+	public abstract void launch();
+	protected abstract void inicializarConversiones();
+	public abstract void realizarConversion();
 }

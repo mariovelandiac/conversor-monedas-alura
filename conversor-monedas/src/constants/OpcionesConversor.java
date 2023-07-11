@@ -1,8 +1,9 @@
 package constants;
 
-public enum OpcionesConversor implements ShowArrayStringText {
-	Divisas("Conversor de Divisas"),
-	Temperatura("Conversor de Unidades de Temperatura");
+public enum OpcionesConversor implements OptionList {
+	Divisas("Conversor de Divisas");
+	// Temperatura("Conversor de Unidades de Temperatura"),
+	// Volumen("Conversor de Unidades de Volumen");
 	
 	private String stringToShow;
 	
@@ -14,9 +15,4 @@ public enum OpcionesConversor implements ShowArrayStringText {
 		return this.stringToShow;
 	}
 
-	@Override
-	public String getShortValue() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

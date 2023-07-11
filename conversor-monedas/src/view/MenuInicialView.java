@@ -1,25 +1,14 @@
 package view;
 
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 import constants.OpcionesConversor;
 
-public class MenuInicialView implements MenuView {
+public class MenuInicialView extends MenuView {
 
-	@Override
-	public Object mostrarOpciones(String[] opciones) {
-		Object selectedOption = JOptionPane.showInputDialog(null,
-			"Seleccione el Conversor Deseado",
-			"Input",
-			JOptionPane.INFORMATION_MESSAGE,
-			null,
-			opciones,
-			opciones[0]
-		);
-		return selectedOption
-				;
-		
+@Override
+	public String mostrarOpciones(String[] opciones, String infoText) {
+		return super.mostrarOpciones(opciones, infoText);
 	}
 
 }

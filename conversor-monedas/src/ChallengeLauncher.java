@@ -4,9 +4,21 @@ import models.MenuInicialModel;
 
 public class ChallengeLauncher {
 	public static void main(String[] args) {
-		MenuInicialView menuInicial = new MenuInicialView();
-		MenuInicialModel menuModel = new MenuInicialModel();
-		MenuInicialController menu = new MenuInicialController(menuInicial, menuModel);
+		MenuInicialView menuView = createMenuInicialView();
+		MenuInicialModel menuModel = createMenuInicialModel();
+		MenuInicialController menu = createMenuInicialController(menuView, menuModel);
 		menu.launch();
+	}
+	
+	private static MenuInicialView createMenuInicialView() {
+		return new MenuInicialView();
+	}
+	
+	private static MenuInicialModel createMenuInicialModel() {
+		return new MenuInicialModel();
+	}
+	
+	private static MenuInicialController createMenuInicialController(MenuInicialView menuView, MenuInicialModel menuModel) {
+		return new MenuInicialController(menuView, menuModel);
 	}
 }

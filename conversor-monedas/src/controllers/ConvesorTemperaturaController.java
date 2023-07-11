@@ -1,9 +1,21 @@
 package controllers;
 
-public class ConvesorTemperaturaController implements ConversorController {
+public class ConvesorTemperaturaController extends ConversorController {
 
 	@Override
 	public void realizarConversion() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void launch() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void inicializarConversiones() {
 		// TODO Auto-generated method stub
 		
 	}
