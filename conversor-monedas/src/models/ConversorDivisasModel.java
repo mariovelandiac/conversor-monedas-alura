@@ -29,4 +29,19 @@ public class ConversorDivisasModel {
 	public void setStrategy(ConversorStrategy strategy) {
 		this.strategy = strategy;
 	}
+	
+	public double validateInput(String amount) {
+		double value = Double.parseDouble(amount);
+		return value;
+	}
+	
+	public double realizarConversion(double amount) {
+		double newAmount = this.strategy.convertir(amount);
+		return newAmount;
+	}
+	
+	public String getWant() {
+		return this.strategy.getUnits();
+	}
+
 }

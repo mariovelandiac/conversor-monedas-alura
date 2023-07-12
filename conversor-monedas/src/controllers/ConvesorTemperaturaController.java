@@ -3,7 +3,7 @@ package controllers;
 public class ConvesorTemperaturaController extends ConversorController {
 
 	@Override
-	public void realizarConversion() {
+	public void realizarConversion(double amount) {
 		// TODO Auto-generated method stub
 		
 	}

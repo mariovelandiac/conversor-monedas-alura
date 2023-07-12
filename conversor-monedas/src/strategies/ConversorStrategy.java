@@ -1,16 +1,11 @@
 package strategies;
 
-public abstract class ConversorStrategy {
+public interface ConversorStrategy {
 		
-	private double conversionFactor;
+	public double convertir(double amount);
 	
-	public void setConversonFactor(double conversionFactor) {
-		this.conversionFactor = conversionFactor;
-	}
+	public void setConversionFactor();
 	
-	public double getConversonFactor() {
-		return this.conversionFactor;
-	}
-	
+	public String getUnits();
 	
 }

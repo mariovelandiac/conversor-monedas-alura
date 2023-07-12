@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.JOptionPane;
 
+import constants.InfoText;
+
 public abstract class MenuView {
 	
 	public String mostrarOpciones(String[] opciones, String textToShow) {
@@ -18,4 +20,25 @@ public abstract class MenuView {
 			}
 			return selectedOption.toString();	
 	}
+	
+	public String leerEntrada() {
+		Object amount = JOptionPane.showInputDialog(InfoText.InputAmount.getStringToShow());
+		return amount.toString();
+	}
+
+	public void mostrarResultado(String respuesta, String unidades) {
+		JOptionPane.showMessageDialog(null,
+				respuesta + " " + unidades,
+				"Resultado",
+				JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	public void mostrarMensajeError(String message) {
+		JOptionPane.showMessageDialog(null,
+				message,
+				"Error",
+				JOptionPane.ERROR_MESSAGE);
+	}
+	
+	
 }
