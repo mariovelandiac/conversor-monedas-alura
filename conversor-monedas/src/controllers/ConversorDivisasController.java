@@ -1,5 +1,6 @@
 package controllers;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import constants.OpcionesDivisas;
 import models.ConversorDivisasModel;
 import view.ConversorDivisasView;
 import strategies.*;
+import utils.RestartConversion;
 
 public class ConversorDivisasController extends ConversorController {
 
@@ -23,15 +25,19 @@ public class ConversorDivisasController extends ConversorController {
 	}
 
 	@Override
-	public void launch() {
-		String[] opciones = this.model.getOpciones();
-		String infoText = this.model.getInfoText();
-		String selected = this.view.mostrarOpciones(opciones, infoText);
-		this.seleccionarEstrategia(selected);
-		this.startConversion();
+	public void launch() throws RestartConversion {
+		try {
+			String[] opciones = this.model.getOpciones();
+			String infoText = this.model.getInfoText();
+			String selected = this.view.mostrarOpciones(opciones, infoText);
+			this.seleccionarEstrategia(selected);
+			this.startConversion();
+		} catch (IllegalArgumentException e) {
+			this.view.mostrarMensajeInformacion(e.getMessage());
+		}
 	}
 
-	private void startConversion() {
+	private void startConversion() throws RestartConversion {
 		boolean validInput = false;
 		while (!validInput) {
 			String amount = this.view.leerEntrada();
@@ -44,19 +50,25 @@ public class ConversorDivisasController extends ConversorController {
 		}
 	}
 
-	public void endConversion() {
-		// Implementar tasa de conversion en setConversionFactor
-		// implmentar metodo end conversion
-	}
 	@Override
 	public void realizarConversion(double amount) {
 		try {
 			double newAmount = this.model.realizarConversion(amount);
-			this.view.mostrarResultado(String.valueOf(newAmount), this.model.getWant());
-		} catch (Exception e) {
+			this.view.mostrarResultado(String.valueOf(newAmount), this.model.getUnits());			
+		} catch (IOException e) {
 			this.view.mostrarMensajeError(e.getMessage());
+		} finally {
+			this.model.closeConversion();
 		}
-
+	}
+	
+	public void endConversion() throws RestartConversion {
+		int response = this.view.mostrarConfirmacionSalida();
+		if (response != 0) {
+			this.view.mostrarMensajeInformacion(InfoText.CerrarConversion.getStringToShow());
+		} else {
+			throw new RestartConversion();
+		}
 	}
 
 	@Override
@@ -69,15 +81,15 @@ public class ConversorDivisasController extends ConversorController {
 		if (strategy != null) {
 			this.model.setStrategy(strategy);
 		} else {
-			this.view.mostrarMensajeError("Opcion de Conversión Invalida");
+			throw new IllegalArgumentException(InfoText.ErrorInvalidOption.getStringToShow());
 		}
 	}
 
 	private Double validateInput(String amount) {
 		try {
-			return this.model.validateInput(amount);
+			return this.model.parseInput(amount);
 		} catch (NumberFormatException e) {
-			this.view.mostrarMensajeError(InfoText.ErrorInput.getStringToShow());
+			this.view.mostrarMensajeError(InfoText.ErrorDoubleInput.getStringToShow());
 			return null;
 		}
 	}

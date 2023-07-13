@@ -2,6 +2,7 @@ package controllers;
 
 import factory.OpcionConversorFactory;
 import models.MenuInicialModel;
+import utils.RestartConversion;
 import view.MenuInicialView;
 
 public class MenuInicialController {
@@ -14,15 +15,15 @@ public class MenuInicialController {
 		this.model = model;
 	}
 
-	public void launch() {
+	public void launch() throws RestartConversion {
+		try {			
 			String[] opciones = this.model.getOpciones();
 			String infoText = this.model.getInfoText();
 			String selected = this.view.mostrarOpciones(opciones, infoText);
 			ConversorController controller = OpcionConversorFactory.createController(selected);
 			controller.launch();
-	}
-
-	public void close() {
-		System.out.println("Gracias, cerrando aplicación");
+		} catch (IllegalArgumentException e) {
+			this.view.mostrarMensajeInformacion(e.getMessage());
+		}
 	}
 }

@@ -2,51 +2,75 @@ package utils;
 
 import java.net.URL;
 import java.util.Scanner;
+import java.io.IOException;
 import java.net.HttpURLConnection;
 
 
-// have=USD&want=EUR&amount=5000"
+public class ConversoraDivisasOnline implements AutoCloseable {
 
-public class ConversoraDivisasOnline {
-
-	private static String apiUri = "https://api.api-ninjas.com/v1/convertcurrency?";
-	private static String method = "GET";
+	private static final String apiUri = "https://api.api-ninjas.com/v1/convertcurrency?";
+	private static final String method = "GET";
 	private String apiQuery;
+	private HttpURLConnection connection;
 
-	public void setApiQuery(String have, String want, String amount) {
-		// validacion
+	private void setApiQuery(String have, String want, String amount) {
 		this.apiQuery = apiUri + "have=" + have + "&want=" + want + "&amount=" + amount;
 	}
 
-	public void convertCurrency(String have, String want, String amount) {
-		this.setApiQuery(have, want, amount);
-		ConversoraDivisasOnline.convertOnline(this.apiQuery);
+	private String getApiQuery() {
+		return this.apiQuery;
 	}
 
-	private static void convertOnline(String apiUri) {
+	public double convertCurrency(String have, String want, double amount) throws IOException {
+		this.setApiQuery(have, want, String.valueOf(amount));
+		double conversionFactor = this.convertOnline(this.getApiQuery());
+		return conversionFactor;
+	}
+
+	private double convertOnline(String apiUri) throws IOException {
 		try {
 			URL url = new URL(apiUri);
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection = (HttpURLConnection) url.openConnection();
 			connection.setRequestMethod(method);
 			connection.connect();
-			
+
 			// Validacion respuesta exitosa
 			int statusCode = connection.getResponseCode();
-			if (statusCode != 200) {
-				throw new RuntimeException("Codigo de respuesta: " + statusCode);
+			if (statusCode != HttpURLConnection.HTTP_OK) {
+				throw new IOException("Codigo de respuesta: " + statusCode);
 			}
-			
-			StringBuilder informationString = new StringBuilder();
-			Scanner scanner = new Scanner(url.openStream());
-			
-			while (scanner.hasNext()) {
-				informationString.append(scanner.nextLine());
-			}
-			scanner.close();
-			System.out.println(informationString);
 
-		} catch (Exception e) {
-			e.printStackTrace();
+			StringBuilder informationString = new StringBuilder();
+			try (Scanner scanner = new Scanner(url.openStream())) {
+				while (scanner.hasNext()) {
+					informationString.append(scanner.nextLine());
+				}
+			}
+			System.out.println(informationString.toString());
+			return this.parseResponse(informationString.toString());
+		} catch (IOException e) {
+			throw new IOException("Error al convertir la moneda, " + e.getMessage());
+		}
+	}
+
+	private double parseResponse(String jsonString) {
+		int startIndex = jsonString.indexOf("\"new_amount\":") + "\"new_amount\":".length();
+		int endIndex = jsonString.indexOf(",", startIndex);
+
+		if (endIndex == -1) {
+			endIndex = jsonString.indexOf("}", startIndex);
+		}
+
+		String newAmountString = jsonString.substring(startIndex, endIndex);
+		double newAmount = Double.parseDouble(newAmountString);
+
+		return newAmount;
+	}
+
+	@Override
+	public void close() {
+		if (connection != null) {
+			connection.disconnect();
 		}
 	}
 

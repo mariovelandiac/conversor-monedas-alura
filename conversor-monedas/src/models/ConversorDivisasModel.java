@@ -1,5 +1,7 @@
 package models;
 
+import java.io.IOException;
+
 import constants.InfoText;
 import constants.OpcionesDivisas;
 import constants.OptionList;
@@ -30,18 +32,23 @@ public class ConversorDivisasModel {
 		this.strategy = strategy;
 	}
 	
-	public double validateInput(String amount) {
+	public double parseInput(String amount) {
 		double value = Double.parseDouble(amount);
 		return value;
 	}
 	
-	public double realizarConversion(double amount) {
+	public double realizarConversion(double amount) throws IOException {
 		double newAmount = this.strategy.convertir(amount);
 		return newAmount;
 	}
 	
-	public String getWant() {
+	public void closeConversion() {
+		this.strategy.close();
+	}
+	
+	public String getUnits() {
 		return this.strategy.getUnits();
 	}
+
 
 }
