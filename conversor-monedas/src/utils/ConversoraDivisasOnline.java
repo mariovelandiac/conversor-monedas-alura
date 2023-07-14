@@ -46,7 +46,6 @@ public class ConversoraDivisasOnline implements AutoCloseable {
 					informationString.append(scanner.nextLine());
 				}
 			}
-			System.out.println(informationString.toString());
 			return this.parseResponse(informationString.toString());
 		} catch (IOException e) {
 			throw new IOException("Error al convertir la moneda, " + e.getMessage());

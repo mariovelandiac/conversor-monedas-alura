@@ -1,23 +1,13 @@
 package view;
 
-public class ConversorTemperaturaView implements ConversorView {
+import constants.OpcionesConversor;
 
-	@Override
-	public double leerEntrada() {
-		// TODO Auto-generated method stub
-		return 0.0;
-	}
+public class ConversorTemperaturaView extends View {
 
-	@Override
-	public void mostrarResultado(double resultado) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mostrarMensajeError(String message) {
-		// TODO Auto-generated method stub
-		
+	private static final String title = OpcionesConversor.Temperatura.getStringToShow();
+	
+	public ConversorTemperaturaView() {
+		super(title);
 	}
 	
 

@@ -1,10 +1,8 @@
 package view;
 
-public interface ConversorView {
+public abstract class ConversorView extends View {
 	
-	public double leerEntrada();
-
-	public void mostrarResultado(double resultado);
-	
-	public void mostrarMensajeError(String message);
+	public ConversorView(String title) {
+		super(title);
+	}
 }

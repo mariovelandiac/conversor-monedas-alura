@@ -1,15 +1,20 @@
 package view;
 
 import javax.swing.JOptionPane;
-
 import constants.InfoText;
 
 public abstract class View {
 	
+	protected String title;
+	
+	public View(String title) {
+		this.title = title;
+	}
+	
 	public String mostrarOpciones(String[] opciones, String textToShow) {
 		Object selectedOption = JOptionPane.showInputDialog(null,
 				textToShow,
-				"Input",
+				this.title,
 				JOptionPane.INFORMATION_MESSAGE,
 				null,
 				opciones,

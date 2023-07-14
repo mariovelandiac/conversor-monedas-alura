@@ -1,15 +1,15 @@
 package strategies;
 
-import java.io.IOException;
-
 public interface ConversorStrategy {
 		
-	public double convertir(double amount) throws IOException;
+	public double convertir(double amount) throws Exception;
 	
-	public void setNewAmount(double amount) throws IOException;
+	public void setNewAmount(double amount) throws Exception;
 	
 	public String getUnits();
 	
 	public void close();
+	
+	public double getNewAmount();
 	
 }

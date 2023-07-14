@@ -5,25 +5,17 @@ import models.MenuInicialModel;
 import utils.RestartConversion;
 import view.MenuInicialView;
 
-public class MenuInicialController {
+public class MenuInicialController extends Controller {
+	
 
-	private MenuInicialView view;
-	private MenuInicialModel model;
-
-	public MenuInicialController(MenuInicialView view, MenuInicialModel model) {
-		this.view = view;
-		this.model = model;
+	public MenuInicialController(MenuInicialModel model, MenuInicialView view) {
+		super(model, view);
 	}
 
-	public void launch() throws RestartConversion {
-		try {			
-			String[] opciones = this.model.getOpciones();
-			String infoText = this.model.getInfoText();
-			String selected = this.view.mostrarOpciones(opciones, infoText);
-			ConversorController controller = OpcionConversorFactory.createController(selected);
-			controller.launch();
-		} catch (IllegalArgumentException e) {
-			this.view.mostrarMensajeInformacion(e.getMessage());
-		}
+	@Override
+	public void start(String selected) throws RestartConversion {
+		Controller controller = OpcionConversorFactory.createController(selected);
+		controller.launch();
 	}
+
 }

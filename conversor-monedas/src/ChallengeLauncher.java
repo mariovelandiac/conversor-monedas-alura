@@ -9,7 +9,6 @@ public class ChallengeLauncher {
 		boolean shouldExit = false;
 
 		while (!shouldExit) {
-
 			MenuInicialView menuView = createMenuInicialView();
 			MenuInicialModel menuModel = createMenuInicialModel();
 			MenuInicialController menu = createMenuInicialController(menuView, menuModel);
@@ -34,6 +33,6 @@ public class ChallengeLauncher {
 
 	private static MenuInicialController createMenuInicialController(MenuInicialView menuView,
 			MenuInicialModel menuModel) {
-		return new MenuInicialController(menuView, menuModel);
+		return new MenuInicialController(menuModel, menuView);
 	}
 }

@@ -1,8 +1,8 @@
 package constants;
 
 public enum OpcionesConversor implements OptionList {
-	Divisas("Conversor de Divisas");
-	// Temperatura("Conversor de Unidades de Temperatura"),
+	Divisas("Conversor de Divisas"),
+	Temperatura("Conversor de Unidades de Temperatura");
 	// Volumen("Conversor de Unidades de Volumen");
 	
 	private String stringToShow;

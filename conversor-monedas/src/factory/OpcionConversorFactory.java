@@ -1,19 +1,23 @@
 package factory;
 
-import controllers.ConversorController;
-import controllers.ConversorDivisasController;
-import models.ConversorDivisasModel;
-import view.ConversorDivisasView;
-import view.ConversorView;
+import controllers.*;
+import models.*;
+import view.*;
 
 public class OpcionConversorFactory {
 
-	public static ConversorController createController(String opcionSelected) {
+	public static Controller createController(String opcionSelected) {
 		switch (opcionSelected) {
 		case "Conversor de Divisas": {
 			ConversorDivisasView view = new ConversorDivisasView();
 			ConversorDivisasModel model = new ConversorDivisasModel();
-			ConversorController controller = new ConversorDivisasController(model, view);
+			Controller controller = new ConversorDivisasController(model, view);
+			return controller;
+		}
+		case "Conversor de Unidades de Temperatura": {
+			ConversorTemperaturaView view = new ConversorTemperaturaView();
+			ConversorTemperaturaModel model = new ConversorTemperaturaModel();
+			ConversorTemperaturaController controller = new ConversorTemperaturaController(model,  view);
 			return controller;
 		}
 		default:

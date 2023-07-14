@@ -1,26 +1,20 @@
 package models;
 
+import java.io.IOException;
+
 import constants.InfoText;
 import constants.OpcionesConversor;
 import constants.OptionList;
-import utils.OpcionesTexto;
+import strategies.ConversorStrategy;
 
-public class MenuInicialModel {
-
-	private String[] opciones;
-	private String infoText;
+public class MenuInicialModel extends Model {
+	
+	private static final OptionList[] opciones = OpcionesConversor.values();
 	
 	public MenuInicialModel() {
+		super(opciones);
 		this.infoText = InfoText.MenuInicial.getStringToShow();
-		OptionList[] opcionesConversor = OpcionesConversor.values();
-		this.opciones = OpcionesTexto.getOpciones(opcionesConversor);
 	}
+
 	
-	public String[] getOpciones() {
-		return this.opciones;
-	}
-	
-	public String getInfoText() {
-		return this.infoText;
-	}
 }

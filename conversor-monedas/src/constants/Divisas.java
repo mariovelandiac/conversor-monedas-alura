@@ -2,7 +2,8 @@ package constants;
 
 public enum Divisas {
 	COP("Pesos Colombianos", "COP"),
-	USD("Dólares Estadounidenses", "USD");
+	USD("Dólares Estadounidenses", "USD"),
+	EUR("Euros", "EUR");
 
 	private String stringToShow;
 	private String isoValue;
