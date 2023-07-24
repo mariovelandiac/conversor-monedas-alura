@@ -1,5 +1,9 @@
 package converter.constants;
-
+/**
+ * InfoText alamacena los mensajes que son mostrados en los cuadros de texto
+ * @version 1.0.0
+ * @author mariovelandiac <mariovelandiawork@gmail.com>
+ */
 public enum InfoText {
 	MenuInicial("Escoja el tipo de conversor a utilizar"),
 	ConvDivisas("Escoja las monedas entre las que desea realizar la conversión"),
@@ -19,7 +23,10 @@ public enum InfoText {
 	InfoText(String stringToShow) {
 		this.stringToShow = stringToShow;
 	}
-
+	
+	/**
+	 * Este método retorna el String que alamacena cada referencia del mensaje a mostrar
+	 */
 	public String getStringToShow() {
 		return this.stringToShow;
 	}
