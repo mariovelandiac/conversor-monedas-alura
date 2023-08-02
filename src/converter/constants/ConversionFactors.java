@@ -8,7 +8,9 @@ package converter.constants;
  */
 public enum ConversionFactors {
 	mlToL(0.001),
-	LtoMl(1000);
+	LtoMl(1000),
+	CelToKel(273.15),
+	FarhToRan(459.67);
 	
 	private double conversionFactor;
 	
