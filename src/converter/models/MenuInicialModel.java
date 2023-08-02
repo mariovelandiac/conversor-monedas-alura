@@ -10,7 +10,7 @@ public class MenuInicialModel extends Model {
 	
 	public MenuInicialModel() {
 		super(opciones);
-		this.infoText = InfoText.MenuInicial.getStringToShow();
+		this.infoText = InfoText.MenuInicial.getText();
 	}
 
 	

@@ -10,7 +10,7 @@ public class ConverterDivisasModel extends Model {
 
 	public ConverterDivisasModel() {
 		super(opciones);
-		this.infoText = InfoText.ConvDivisas.getStringToShow();
+		this.infoText = InfoText.ConvDivisas.getText();
 	}
 
 

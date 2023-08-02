@@ -4,10 +4,10 @@ import converter.constants.OpcionesConversor;
 
 public class ConverterDivisasView extends View {
 	
-	private static final String title = OpcionesConversor.Divisas.getStringToShow();
+	private static final String TITLE = OpcionesConversor.Divisas.getText();
 	
 	public ConverterDivisasView() {
-		super(title);
+		super(TITLE);
 	}
 
 	@Override

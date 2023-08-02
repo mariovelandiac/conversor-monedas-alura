@@ -19,7 +19,7 @@ public enum OpcionesTemperatura implements OptionList {
 		this.stringToShow = stringToShow;
 	};
 	
-	public String getStringToShow() {
+	public String getText() {
 		return this.stringToShow;
 	}
 }

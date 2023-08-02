@@ -8,7 +8,7 @@ public class MlToLStrategy extends ConversionStrategy {
 	
 	public MlToLStrategy() {
 		this.conversionFactor = ConversionFactors.mlToL.getConversionFactor();
-		this.units = UnidadesVolumen.l.getStringToShow();
+		this.units = UnidadesVolumen.l.getText();
 	}
 	
 }

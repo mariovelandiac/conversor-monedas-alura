@@ -1,6 +1,6 @@
 package converter.strategies;
 
-public interface ConversorStrategy {
+public interface ConverterStrategy {
 		
 	public String convertir(double amount) throws Exception;
 	

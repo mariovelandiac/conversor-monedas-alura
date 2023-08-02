@@ -6,13 +6,13 @@ public enum OpcionesDivisas implements OptionList {
 	COPtoEUR("De Pesos colombianos (COP) a Euros (EUR)"),
 	COPtoGBP("De Pesos colombianos (COP) a Libras Esterlinas (GBP)"),
 	COPtoJPY("De Pesos colombianos (COP) a Yen Japonés (JPY)"),
-	COPtoKRW("De Pesos colombianos (COP) a Won surcoreano (KRW)");
-	/* 
+	COPtoKRW("De Pesos colombianos (COP) a Won surcoreano (KRW)"),
 	USDtoCOP("De Dólar estadounidense (USD) a Pesos colombianos (COP)"),
 	USDtoEUR("De Dólar estadounidense (USD) a Euros (EUR)"),
 	USDtoGBP("De Dólar estadounidense (USD) a Libras Esterlinas (GBP)"),
-	USDtoJPa("De Dólar estadounidense (USD) a Yen Japonés (JPY)"),
-	USDtoKRW("De Dólar estadounidense (USD) a Won sul-coreano (KRW)"),
+	USDtoJPY("De Dólar estadounidense (USD) a Yen Japonés (JPY)"),
+	USDtoKRW("De Dólar estadounidense (USD) a Won sul-coreano (KRW)");
+	/* 
 	EURtoCOP("De Euros (EUR) a Pesos colombianos (COP)"),
 	EURtoUSD("De Euros (EUR) a Dólar estadounidense (USD)"),
 	EURtoGBP("De Euros (EUR) a Libras Esterlinas (GBP)"),
@@ -41,7 +41,7 @@ public enum OpcionesDivisas implements OptionList {
 		this.stringToShow = stringToShow;
 	};
 	
-	public String getStringToShow() {
+	public String getText() {
 		return this.stringToShow;
 	}
 	

@@ -1,12 +1,12 @@
 package converter.models;
 
 import converter.constants.OptionList;
-import converter.strategies.ConversorStrategy;
+import converter.strategies.ConverterStrategy;
 import converter.utils.OpcionesTexto;
 
 public abstract class Model  {
 
-	protected ConversorStrategy strategy;
+	protected ConverterStrategy strategy;
 	protected String[] opciones;
 	protected String infoText;
 	
@@ -14,7 +14,7 @@ public abstract class Model  {
 		this.opciones = OpcionesTexto.getOpciones(opciones);
 	}
 	
-	public void setStrategy(ConversorStrategy strategy) {
+	public void setStrategy(ConverterStrategy strategy) {
 		this.strategy = strategy;
 	}
 

@@ -19,7 +19,7 @@ public class ChallengeLauncher {
 			} catch (RestartConversion restart) {
 				continue;
 			} catch (Exception e) {
-				menuView.mostrarMensajeError(InfoText.ErrorInesperado.getStringToShow());
+				menuView.mostrarMensajeError(InfoText.ErrorInesperado.getText());
 			}
 			shouldExit = true;
 		}

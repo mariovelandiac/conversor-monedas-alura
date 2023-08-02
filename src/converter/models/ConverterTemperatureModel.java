@@ -10,6 +10,6 @@ public class ConverterTemperatureModel extends Model {
 
 	public ConverterTemperatureModel() {
 		super(opciones);
-		this.infoText = InfoText.ConvTemperatura.getStringToShow();
+		this.infoText = InfoText.ConvTemperatura.getText();
 	}
 }

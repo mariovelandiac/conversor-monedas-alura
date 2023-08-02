@@ -1,6 +1,6 @@
 package converter.constants;
 
-public enum UnidadesTemperatura {
+public enum UnidadesTemperatura implements OptionList {
 	
 	Cel("grados Centigrados"),
 	Farh("grados Fahrenheit"),
@@ -13,7 +13,7 @@ public enum UnidadesTemperatura {
 		this.stringToShow = stringToShow;
 	}
 
-	public String getStringToShow() {
+	public String getText() {
 		return this.stringToShow;
 	}
 }

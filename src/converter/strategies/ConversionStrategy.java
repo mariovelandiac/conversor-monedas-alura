@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 import converter.utils.ConversoraDivisasOnline;
 
-public abstract class ConversionStrategy implements ConversorStrategy {
+public abstract class ConversionStrategy implements ConverterStrategy {
 
 	protected String units;
 	protected String have;

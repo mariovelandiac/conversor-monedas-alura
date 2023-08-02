@@ -8,7 +8,7 @@ public class LtoMlStrategy extends ConversionStrategy {
 	
 	public LtoMlStrategy() {
 		this.conversionFactor = ConversionFactors.LtoMl.getConversionFactor();
-		this.units = UnidadesVolumen.ml.getStringToShow();
+		this.units = UnidadesVolumen.ml.getText();
 	}
 	
 }

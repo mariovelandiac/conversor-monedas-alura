@@ -22,15 +22,15 @@ public abstract class View {
 				opciones[0]
 			);
 			if (selectedOption == null) {
-				throw new IllegalArgumentException(InfoText.ErrorOptionSelected.getStringToShow());
+				throw new IllegalArgumentException(InfoText.ErrorOptionSelected.getText());
 			}
 			return selectedOption.toString();	
 	}
 	
 	public String leerEntrada() {
-		Object amount = JOptionPane.showInputDialog(InfoText.InputAmount.getStringToShow());
+		Object amount = JOptionPane.showInputDialog(InfoText.InputAmount.getText());
 		if (amount == null) {
-			throw new IllegalArgumentException(InfoText.ErrorNonAmountSelected.getStringToShow());
+			throw new IllegalArgumentException(InfoText.ErrorNonAmountSelected.getText());
 		}
 		return amount.toString();
 	}
@@ -58,7 +58,7 @@ public abstract class View {
 	
 	public int mostrarConfirmacionSalida() {
 		int optionSelected = JOptionPane.showConfirmDialog(null, 
-				InfoText.DeseaContinuar.getStringToShow(), 
+				InfoText.DeseaContinuar.getText(), 
 				"Input", 
 				JOptionPane.YES_NO_CANCEL_OPTION);
 		return optionSelected;

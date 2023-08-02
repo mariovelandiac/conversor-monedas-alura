@@ -11,7 +11,7 @@ public enum UnidadesVolumen implements OptionList {
 		this.stringToShow = string;
 	}
 	
-	public String getStringToShow() {
+	public String getText() {
 		return this.stringToShow;
 	}
 

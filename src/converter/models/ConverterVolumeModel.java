@@ -10,6 +10,6 @@ public class ConverterVolumeModel extends Model {
 
 	public ConverterVolumeModel() {
 		super(opciones);
-		this.infoText = InfoText.ConvVolumen.getStringToShow();
+		this.infoText = InfoText.ConvVolumen.getText();
 	}
 }

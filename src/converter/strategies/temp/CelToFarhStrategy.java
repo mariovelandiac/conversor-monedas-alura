@@ -6,7 +6,7 @@ import converter.strategies.ConversionStrategy;
 public class CelToFarhStrategy extends ConversionStrategy {
 
 	public CelToFarhStrategy() {
-		this.units = UnidadesTemperatura.Farh.getStringToShow();
+		this.units = UnidadesTemperatura.Farh.getText();
 	}
 
 	@Override

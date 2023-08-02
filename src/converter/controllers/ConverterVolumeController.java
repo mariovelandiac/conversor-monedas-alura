@@ -14,8 +14,8 @@ public class ConverterVolumeController extends ConverterController {
 
 	@Override
 	public void inicializarConversiones() {
-		this.conversiones.put(OpcionesVolumen.mlAl.getStringToShow(), new MlToLStrategy());
-		this.conversiones.put(OpcionesVolumen.lAml.getStringToShow(), new LtoMlStrategy());
+		this.conversiones.put(OpcionesVolumen.mlAl.getText(), new MlToLStrategy());
+		this.conversiones.put(OpcionesVolumen.lAml.getText(), new LtoMlStrategy());
 	}
 
 }

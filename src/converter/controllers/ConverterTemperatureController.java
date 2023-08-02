@@ -14,7 +14,7 @@ public class ConverterTemperatureController extends ConverterController {
 
 	@Override
 	public void inicializarConversiones() {
-		this.conversiones.put(OpcionesTemperatura.CelToFarh.getStringToShow(), new CelToFarhStrategy());
-		this.conversiones.put(OpcionesTemperatura.FarhToCel.getStringToShow(), new FarhToCelStrategy());
+		this.conversiones.put(OpcionesTemperatura.CelToFarh.getText(), new CelToFarhStrategy());
+		this.conversiones.put(OpcionesTemperatura.FarhToCel.getText(), new FarhToCelStrategy());
 	}
 }

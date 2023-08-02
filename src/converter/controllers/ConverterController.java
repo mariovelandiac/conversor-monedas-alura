@@ -5,13 +5,13 @@ import java.util.Map;
 
 import converter.constants.InfoText;
 import converter.models.Model;
-import converter.strategies.ConversorStrategy;
+import converter.strategies.ConverterStrategy;
 import converter.utils.RestartConversion;
 import converter.view.View;
 
 public abstract class ConverterController extends Controller {
 
-	protected Map<String, ConversorStrategy> conversiones;
+	protected Map<String, ConverterStrategy> conversiones;
 
 	public ConverterController(Model model, View view) {
 		super(model, view);
@@ -54,18 +54,18 @@ public abstract class ConverterController extends Controller {
 	protected void endConversion() throws RestartConversion {
 		int response = this.view.mostrarConfirmacionSalida();
 		if (response != 0) {
-			this.view.mostrarMensajeInformacion(InfoText.CerrarConversion.getStringToShow());
+			this.view.mostrarMensajeInformacion(InfoText.CerrarConversion.getText());
 		} else {
 			throw new RestartConversion();
 		}
 	}
 
 	protected void seleccionarEstrategia(String selectedOption) {
-		ConversorStrategy strategy = this.conversiones.get(selectedOption);
+		ConverterStrategy strategy = this.conversiones.get(selectedOption);
 		if (strategy != null) {
 			this.model.setStrategy(strategy);
 		} else {
-			throw new IllegalArgumentException(InfoText.ErrorInvalidOption.getStringToShow());
+			throw new IllegalArgumentException(InfoText.ErrorInvalidOption.getText());
 		}
 	}
 
@@ -73,7 +73,7 @@ public abstract class ConverterController extends Controller {
 		try {
 			return this.model.parseInput(amount);
 		} catch (NumberFormatException e) {
-			this.view.mostrarMensajeError(InfoText.ErrorDoubleInput.getStringToShow());
+			this.view.mostrarMensajeError(InfoText.ErrorDoubleInput.getText());
 			return null;
 		}
 	}
