@@ -8,6 +8,11 @@ Este conversor de unidades cuenta con varias opciones para convertir divisas, un
 Este conversor utiliza la API de ninja para realizar una consulta online de las tasas de conversión de un par de monedas dadas
 
 # Conversor de Unidades de Temperatura
+Conversor de unidades de tempertura
+  Grados Centigrados
+  Grados Farenheit
+  Temperatura Absoluta Kelvin
+  Temperatura Absoluta Rankine
 # Conversor de Unidades de Volumen
 # Conversor de Unidades de Masa
 # Conversor de Unidades de Distancia
