@@ -23,6 +23,12 @@ public class ConverterDivisasController extends ConverterController {
 		this.conversiones.put(OpcionesDivisas.USDtoGBP.getText(), new DolaresALibrasExterlinasStrategy());
 		this.conversiones.put(OpcionesDivisas.USDtoJPY.getText(), new DolaresAYenJaponesStrategy());
 		this.conversiones.put(OpcionesDivisas.USDtoKRW.getText(), new DolaresAWonSurcoreanoStrategy());
+		this.conversiones.put(OpcionesDivisas.EURtoCOP.getText(), new EurosAPesosStrategy());
+		this.conversiones.put(OpcionesDivisas.EURtoUSD.getText(), new EurosADolaresStrategy());
+		this.conversiones.put(OpcionesDivisas.EURtoGBP.getText(), new EurosALibrasExterlinasStrategy());
+		this.conversiones.put(OpcionesDivisas.EURtoJPY.getText(), new EurosAYenJaponesStrategy());
+		this.conversiones.put(OpcionesDivisas.EURtoKRW.getText(), new EurosAWonSurcoreanoStrategy());
+
 	}
 
 

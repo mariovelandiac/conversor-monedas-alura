@@ -16,7 +16,7 @@ public abstract class ConverterController extends Controller {
 	public ConverterController(Model model, View view) {
 		super(model, view);
 		this.conversiones = new HashMap<>();
-		inicializarConversiones();
+		this.inicializarConversiones();
 	}
 
 	@Override

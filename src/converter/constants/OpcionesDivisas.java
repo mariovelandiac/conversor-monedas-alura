@@ -11,13 +11,13 @@ public enum OpcionesDivisas implements OptionList {
 	USDtoEUR("De Dólar estadounidense (USD) a Euros (EUR)"),
 	USDtoGBP("De Dólar estadounidense (USD) a Libras Esterlinas (GBP)"),
 	USDtoJPY("De Dólar estadounidense (USD) a Yen Japonés (JPY)"),
-	USDtoKRW("De Dólar estadounidense (USD) a Won sul-coreano (KRW)");
-	/* 
+	USDtoKRW("De Dólar estadounidense (USD) a Won sul-coreano (KRW)"),
 	EURtoCOP("De Euros (EUR) a Pesos colombianos (COP)"),
 	EURtoUSD("De Euros (EUR) a Dólar estadounidense (USD)"),
 	EURtoGBP("De Euros (EUR) a Libras Esterlinas (GBP)"),
 	EURtoJPY("De Euros (EUR) a Yen Japonés (JPY)"),
-	EURtoKRW("De Euros (EUR) a Won surcoreanos (KRW)"),
+	EURtoKRW("De Euros (EUR) a Won surcoreanos (KRW)");
+	/*
 	GBPtoCOP("De Libras Esterlinas (GBP) a Pesos colombianos (COP)"),
 	GBPtoUSD("De Libras Esterlinas (GBP) a Dólar estadounidense (USD)"),
 	GBPtoEUR("De Libras Esterlinas (GBP) a Euros (EUR)"),
@@ -32,8 +32,8 @@ public enum OpcionesDivisas implements OptionList {
 	KRWtoUSD("Won surcoreano (KRW) a Dólar estadounidense (USD)"),
 	KRWtoEUR("Won surcoreano (KRW) a Euros (EUR)"),
 	KRWtoGBP("Won surcoreano (KRW) a De Libras Esterlinas (GBP)"),
-	KRWtoKRW("Won surcoreano (KRW) a De Yen Japonés (JPY)"); 
-	*/
+	KRWtoKRW("Won surcoreano (KRW) a De Yen Japonés (JPY)");
+	*/ 
 
 	private String stringToShow;
 	

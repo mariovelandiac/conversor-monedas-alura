@@ -2,11 +2,11 @@ package converter.strategies.currency;
 
 import converter.constants.Divisas;
 
-public class DolaresAYenJaponesStrategy extends DivisasStrategy {
+public class EurosAYenJaponesStrategy extends DivisasStrategy {
 
-	public DolaresAYenJaponesStrategy() {
+	public EurosAYenJaponesStrategy() {
 		this.units = Divisas.JPY.getStringToShow();
-		this.have = Divisas.USD.getIsoValue();
+		this.have = Divisas.EUR.getIsoValue();
 		this.want = Divisas.JPY.getIsoValue();
 	}
 
