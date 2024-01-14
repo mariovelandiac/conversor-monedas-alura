@@ -1,16 +1,17 @@
 package converter.strategies.temp;
 
+import converter.constants.ConversionFactors;
 import converter.constants.UnidadesTemperatura;
 import converter.strategies.ConversionStrategy;
 
-public class CelToFarhStrategy extends ConversionStrategy {
+public class RanToFarhStrategy extends ConversionStrategy {
 
-	public CelToFarhStrategy() {
+	public RanToFarhStrategy() {
 		this.units = UnidadesTemperatura.Farh.getText();
 	}
 
 	@Override
 	public void setNewAmount(double amount) throws Exception {
-		this.newAmount = (amount * 9 / 5) + 32;
+		this.newAmount = amount - ConversionFactors.FarhToRan.getConversionFactor();
 	}
 }

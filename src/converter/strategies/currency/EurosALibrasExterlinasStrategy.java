@@ -2,11 +2,11 @@ package converter.strategies.currency;
 
 import converter.constants.Divisas;
 
-public class DolaresALibrasExterlinasStrategy extends DivisasStrategy {
+public class EurosALibrasExterlinasStrategy extends DivisasStrategy {
 
-	public DolaresALibrasExterlinasStrategy() {
+	public EurosALibrasExterlinasStrategy() {
 		this.units = Divisas.GBP.getStringToShow();
-		this.have = Divisas.USD.getIsoValue();
+		this.have = Divisas.EUR.getIsoValue();
 		this.want = Divisas.GBP.getIsoValue();
 	}
 

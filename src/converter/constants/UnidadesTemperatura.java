@@ -2,8 +2,8 @@ package converter.constants;
 
 public enum UnidadesTemperatura implements OptionList {
 	
-	Cel("grados Centigrados"),
-	Farh("grados Fahrenheit"),
+	Cel("° Centigrados"),
+	Farh("° Fahrenheit"),
 	Kel("Kelvin"),
 	Ran("Ranking");
 	

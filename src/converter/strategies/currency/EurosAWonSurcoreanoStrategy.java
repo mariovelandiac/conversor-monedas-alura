@@ -2,11 +2,11 @@ package converter.strategies.currency;
 
 import converter.constants.Divisas;
 
-public class DolaresAWonSurcoreanoStrategy extends DivisasStrategy {
+public class EurosAWonSurcoreanoStrategy extends DivisasStrategy {
 
-	public DolaresAWonSurcoreanoStrategy() {
+	public EurosAWonSurcoreanoStrategy() {
 		this.units = Divisas.KRW.getStringToShow();
-		this.have = Divisas.USD.getIsoValue();
+		this.have = Divisas.EUR.getIsoValue();
 		this.want = Divisas.KRW.getIsoValue();
 	}
 

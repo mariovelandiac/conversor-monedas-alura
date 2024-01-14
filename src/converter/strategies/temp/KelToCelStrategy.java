@@ -1,16 +1,17 @@
 package converter.strategies.temp;
 
+import converter.constants.ConversionFactors;
 import converter.constants.UnidadesTemperatura;
 import converter.strategies.ConversionStrategy;
 
-public class FarhToCelStrategy extends ConversionStrategy {
+public class KelToCelStrategy extends ConversionStrategy {
 
-	public FarhToCelStrategy() {
+	public KelToCelStrategy() {
 		this.units = UnidadesTemperatura.Cel.getText();
 	}
-	
+
 	@Override
 	public void setNewAmount(double amount) throws Exception {
-		this.newAmount = (amount - 32) * 5 / 9;
+		this.newAmount = amount - ConversionFactors.CelToKel.getConversionFactor();
 	}
 }
